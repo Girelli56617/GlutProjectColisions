@@ -49,7 +49,7 @@ void processMouseInput(int x, int y) {
 	double deltaX = x - camera.angleX;
 	double deltaY = y - camera.angleY;
 
-	if (x <= 0 || x >= Parameters.widht - 1 || y <= 0 || y >= Parameters.height - 1) {
+	if (x <= 0 || x >= Parameters.width - 1 || y <= 0 || y >= Parameters.height - 1) {
 		SetPhysicalCursorPos(960, 540);
 		x = 960;
 		y = 540;
