@@ -169,9 +169,9 @@ void drawBox(float width, float height, float depth) {
     glPopMatrix();
 }
 
-void loadTexture(char* filename, Sphere * sphereN) {
+void loadTexture(const char* filename, Sphere* sphereN) {
     int width, height, channels;
-    stbi_us* imageData = stbi_load(filename, &width, &height, &channels, NULL);
+    stbi_uc* imageData = stbi_load(filename, &width, &height, &channels, 0);
 
     if (!imageData) {
         printf("Failed to load texture: %s\n", filename);

@@ -1,10 +1,10 @@
 #pragma once
 #include <stdio.h>
-#include <glew.h>
-#include <freeglut.h>
+#include <GL/glew.h>
+#include <GL/freeglut.h>
 #include <math.h>
 #include <time.h>
-#include <stb_image.h>
+#include "../libraries/stb/stb_image.h"
 
 #define M_PI 3.14159265358979323846
 
@@ -22,7 +22,7 @@ typedef struct {
 	float mass;
 	unsigned int textureId;
 	short status;
-	long long previousTime;
+	int previousTime;
 }Sphere;
 
 typedef struct{
@@ -38,9 +38,9 @@ typedef struct {
 }Parameters;
 
 
-Camera camera;
-Parameters parameters;
-Sphere *sphere;
+extern Camera camera;
+extern Parameters parameters;
+extern Sphere *sphere;
 
 void renderScene();
 void processAsciiInput(unsigned char characterKey);

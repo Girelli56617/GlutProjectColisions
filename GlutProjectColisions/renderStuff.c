@@ -29,6 +29,17 @@ void cameraInit() {
 }
 
 void sphereInit(Sphere *sphereN) {
+
+	sphere->spherePosition[0] = 0.0;
+    sphere->spherePosition[1] = 0.0;
+    sphere->spherePosition[2] = 0.0;
+
+	sphere->speed[0] = 0.0;
+	sphere->speed[1] = 0.0;
+	sphere->speed[2] = 0.0;
+
+	sphere->previousTime = 0.0f;
+    
 	sphereN->sectorCount = 36;
 	sphereN->stackCount = 36;
 	sphereN->radius = 1.0f;
@@ -75,12 +86,11 @@ void sphereInit(Sphere *sphereN) {
 
 void renderScene() {
 
-	long long currentTime = glutGet(GLUT_ELAPSED_TIME);
+	int currentTime = glutGet(GLUT_ELAPSED_TIME);
 
-	float deltaTime = (float)(currentTime - sphere->previousTime) / 1000.0f;
-
+	double deltaTime = (double)(currentTime - sphere->previousTime) / 1000.0;
+	
 	sphere->previousTime = currentTime;
-
 	glClearColor(0.33f, 0.91f, 1.0f, 1.0f);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -136,11 +146,11 @@ void renderScene() {
 }
 
 
-//ajusta a projeção dos objetos quando a janela tem seu tamanho modificado
+//ajusta a projeï¿½ï¿½o dos objetos quando a janela tem seu tamanho modificado
 
 void resize(int weight, int height) {
 
-	//impede uma divisão por zero
+	//impede uma divisï¿½o por zero
 
 	if(height == 0){
 		height = 1;
@@ -152,7 +162,7 @@ void resize(int weight, int height) {
 
 	glLoadIdentity();
 
-	//O que será renderizado na tela
+	//O que serï¿½ renderizado na tela
 	glViewport(0, 0, weight, height);
 
 	//define o "furstrum"

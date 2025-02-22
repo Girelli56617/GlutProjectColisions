@@ -1,5 +1,9 @@
 #include "main.h"
 
+Camera camera;
+Parameters parameters;
+Sphere *sphere;
+
 int main(int argc, char* argv[]) {
 
 	srand((int)time(NULL));
@@ -26,23 +30,23 @@ int main(int argc, char* argv[]) {
 
 	glutFullScreen();
 
-	//inicializa a câmera
+	//inicializa a cï¿½mera
 	cameraInit();
 
 	for (int i = 0; i < parameters.nSpheres; i++) { 
 		sphereInit(&sphere[i]);
 	}
 
-	//Função para redimensionar o tamanho da tela
+	//Funï¿½ï¿½o para redimensionar o tamanho da tela
 	glutReshapeFunc(resize);
 
-	// passa uma referência de process Ascii Input para glutKeyboardFunc
+	// passa uma referï¿½ncia de process Ascii Input para glutKeyboardFunc
 	glutKeyboardFunc(processAsciiInput);
 
-	// passa uma referência de processMouseInput para glutKeyboardFunc
+	// passa uma referï¿½ncia de processMouseInput para glutKeyboardFunc
 	glutPassiveMotionFunc(processMouseInput);
 
-	// passa uma referência de renderScene para glutDisplayFunc
+	// passa uma referï¿½ncia de renderScene para glutDisplayFunc
 	glutDisplayFunc(renderScene);
 
 	glutIdleFunc(requestRenderUpdate);

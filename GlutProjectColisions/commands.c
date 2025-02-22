@@ -50,7 +50,7 @@ void processMouseInput(int x, int y) {
 	double deltaY = y - camera.angleY;
 
 	if (x <= 0 || x >= parameters.width - 1 || y <= 0 || y >= parameters.height - 1) {
-		SetPhysicalCursorPos(parameters.width/2, parameters.height/2);
+		glutWarpPointer(parameters.width/2, parameters.height/2);
 		x = parameters.width / 2;
 		y = parameters.height / 2;
 	}
